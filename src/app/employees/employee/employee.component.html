@@ -1,0 +1,30 @@
+<form #employeeForm="ngForm" (ngSubmit)="onSubmit(employeeForm)">
+  <h4>Add Target</h4>
+  <div class="form-group">
+    <label>Company Name:</label>
+    <input class="form-control" name="CompanyName"  #CompanyName="ngModel" [(ngModel)]="employeeService.seletedEmployee.CompanyName" placeholder="Company Name"required>
+  </div>
+  <div class="form-group">
+    <label>Key Contacts:</label>
+    <input class="form-control" name="KeyContacts"  #KeyContacts="ngModel" [(ngModel)]="employeeService.seletedEmployee.KeyContacts" placeholder="Key Contacts"required>
+  </div>
+ <div class="form-group">
+    <label>Current Status</label>
+   <select class="custom-select" name="CurrentStatus" #CurrentStatus="ngModel" [(ngModel)]="employeeService.seletedEmployee.CurrentStatus" required>
+     <option selected>Current Status</option>
+     <option *ngFor="let stat of stats"  placeholder="Key Contact">{{stat}}</option>
+   </select>
+ </div>
+ 
+ <div class="form-group">
+    <label>Financial Performance</label>
+  <select class="custom-select" name="FinancialPerformance" #FinancialPerformance="ngModel" [(ngModel)]="employeeService.seletedEmployee.FinancialPerformance" required>
+    <option selected>Financial Performance</option>
+    <option *ngFor="let stati of statis">{{stati}}</option>
+  </select>
+</div>
+<div class="form-group">
+  <button class="btn btn-default" type="submit" [disabled]="!employeeForm.valid" >Save</button>
+  <button class="btn btn-default" type="submit" (click)="resetForm(employeeForm)">Reset</button>
+</div>
+</form>

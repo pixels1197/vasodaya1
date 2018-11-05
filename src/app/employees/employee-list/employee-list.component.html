@@ -1,0 +1,25 @@
+
+<table class="table table-sm table-hover">
+  <tr><td>Company Name</td>
+  <td>Key Contacts</td>
+<td>Current Status</td>
+<td>Financial Performance</td></tr>
+  <tr *ngFor="let employee of employeeList">
+      <td>{{employee.CompanyName}}</td>
+      <td>{{employee.KeyContacts}}</td>
+      <td>{{employee.CurrentStatus}}</td>
+      <td>{{employee.FinancialPerformance}}</td>
+       <td>
+         <button class="btn btn-default" type="submit" (click)="onEdit(employee)">Edit
+        <a  >
+          <i class="fa fa-pencil-square-o"></i>
+        </a>
+      </button>
+      <button class="btn btn-default" type="submit" (click)="onDelete(employee.$key)">Remove
+        <a >
+          <i class="fa fa-trash-o"></i>
+        </a>
+      </button>
+      </td>
+  </tr>
+</table>
